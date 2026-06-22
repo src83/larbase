@@ -8,6 +8,7 @@
 /storage/*.key
 /modules
 /vendor
+/xtra
 .env
 .env.testing
 .env.backup
