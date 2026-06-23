@@ -51,6 +51,35 @@ return [
     */
 
     'channels' => [
+
+        // Технический факт ошибки (сырьё для: Sentry / dev-анализа)
+        'api_throwable' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/api_throwable.log'),
+            'level' => env('LOG_LEVEL', 'error'),
+        ],
+
+        // API-ответ, бизнес-ошибки (сырьё для: Elastic / ClickHouse)
+        'api_rendered' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/api_rendered.log'),
+            'level' => env('LOG_LEVEL', 'error'),
+        ],
+
+        // Логирование пропущенных словарных ключей (если перевод не найден)
+        'api_missing_translations' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/api_missing_translations.log'),
+            'level' => 'warning',
+        ],
+
+        // Логирование бизнес-аномалий или нарушений бизнес-ожиданий
+        'api_business' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/api_business.log'),
+            'level' => 'warning',
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],

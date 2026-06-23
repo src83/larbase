@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
-use App\Http\Middleware\CheckHost;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -12,6 +11,10 @@ use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\ValidateSignature;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
+use Src83\LaravelApiResponse\Http\Middleware\ApiContextMiddleware;
+use Src83\LaravelApiResponse\Http\Middleware\SetupHeadersApiRequest;
+use Src83\LaravelApiResponse\Http\Middleware\SetupHeadersApiResponse;
+use Src83\LaravelApiResponse\Http\Middleware\WrapApiResponse;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;
@@ -62,10 +65,14 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            CheckHost::class,
+            SetupHeadersApiRequest::class,
+            ApiContextMiddleware::class,
+            // \App\Http\Middleware\CheckHost::class,
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             SubstituteBindings::class,
+            WrapApiResponse::class,
+            SetupHeadersApiResponse::class,
         ],
     ];
 
