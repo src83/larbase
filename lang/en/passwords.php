@@ -15,8 +15,9 @@ return [
 
     'reset' => 'Your password has been reset!',
     'sent' => 'We have emailed your password reset link!',
-    'throttled' => 'Please wait before retrying.',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that email address.",
+    'throttled' => 'Please wait before retrying',
+    'token' => 'You can only recover your password using the link in the email once. A second attempt using the same link is not allowed. You can start recovering your password from the beginning',
+    'user' => 'We cant find a user with the specified email address',
+    'password' => 'The password must be at least eight characters long and match the confirmation',
 
 ];

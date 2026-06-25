@@ -50,6 +50,7 @@ return [
     */
     'module_aliases' => [
         // 'posts_drafts' => 'posts',
+         'test_exception' => 'test',
     ],
 
 ];

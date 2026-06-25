@@ -1,6 +1,7 @@
 <?php
 
 use App\Modules\Example\Providers\ExampleServiceProvider;
+use App\Modules\Test\Providers\TestServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\RouteServiceProvider;
@@ -230,6 +231,7 @@ return [
          * Moduled Service Providers...
          */
         ExampleServiceProvider::class,
+        TestServiceProvider::class,
 
     ],
 
