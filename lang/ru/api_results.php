@@ -68,6 +68,21 @@ return [
 
     // Error Messages by Modules ------------------------------------------------------------
 
+    'events' => [
+        'bad_request'           => 'Некорректный запрос [модуль: events]',  // 400
+        'unauthorized'          => 'Неаутентифицирован [модуль: events]',  // 401
+        'forbidden'             => 'Неавторизован (доступ запрещён) [модуль: events]',  // 403
+        'item_not_found'        => 'Запись не найдена [модуль: events]',  // 404
+        'model_not_found'       => 'Модель не найдена [модуль: events]',  // 404
+        'not_found'             => 'Не найдено [модуль: events]',  // 404
+        'method_not_allowed'    => 'Метод не поддерживается [модуль: events]',  // 405
+        'conflict'              => 'Запись заблокирована бизнес-логикой [модуль: events]',  // 409
+        'content_too_large'     => 'Размер запроса превышает допустимый [модуль: events]',  // 413
+        'unprocessable_content' => 'Ошибка валидации [модуль: events]',  // 422
+        'locked'                => 'Ресурс заблокирован [модуль: events]',  // 423
+        'internal_server_error' => 'Внутренняя ошибка сервера [модуль: events]',  // 500
+    ],
+
     'test_exception' => [
         'bad_request'           => 'Некорректный запрос [модуль: test_exception]',  // 400
         'unauthorized'          => 'Неаутентифицирован [модуль: test_exception]',  // 401

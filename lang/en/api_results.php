@@ -68,6 +68,21 @@ return [
 
     // Error Messages by Modules ------------------------------------------------------------
 
+    'events' => [
+        'bad_request'           => 'Bad Request [module: events]',  // 400
+        'unauthorized'          => 'Unauthenticated [module: events]',  // 401
+        'forbidden'             => 'Unauthorized (permission denied) [module: events]',  // 403
+        'item_not_found'        => 'Item not found [module: events]',  // 404
+        'model_not_found'       => 'Model not found [module: events]',  // 404
+        'not_found'             => 'Not found [module: events]',  // 404
+        'method_not_allowed'    => 'Method not allowed [module: events]',  // 405
+        'conflict'              => 'Record is locked by business logic [module: events]',  // 409
+        'content_too_large'     => 'Content too large [module: events]',  // 413
+        'unprocessable_content' => 'Validation error [module: events]',  // 422
+        'locked'                => 'Resource locked [module: events]',  // 423
+        'internal_server_error' => 'Internal Server Error [module: events]',  // 500
+    ],
+
     'test_exception' => [
         'bad_request'           => 'Bad Request [module: test_exception]',  // 400
         'unauthorized'          => 'Unauthenticated [module: test_exception]',  // 401

@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\Earthquake\Providers\EarthquakeServiceProvider;
 use App\Modules\Example\Providers\ExampleServiceProvider;
 use App\Modules\Test\Providers\TestServiceProvider;
 use App\Providers\AppServiceProvider;
@@ -230,6 +231,7 @@ return [
         /*
          * Moduled Service Providers...
          */
+        EarthquakeServiceProvider::class,
         ExampleServiceProvider::class,
         TestServiceProvider::class,
 
