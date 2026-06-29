@@ -25,7 +25,7 @@ class AfadEarthquakeProvider implements EarthquakeProviderInterface
 
         $start = $now->modify('-6 hours')->format('Y-m-d H:i:s');
         $end = $now->format('Y-m-d H:i:s');
-        $requestUrl = config('api.afad_source').'?start='.$start.'&end='.$end;
+        $requestUrl = config('earthquake.afad_source').'?start='.$start.'&end='.$end;
 
         $response = Http::get($requestUrl);
 
