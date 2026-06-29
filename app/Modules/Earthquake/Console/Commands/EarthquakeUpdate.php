@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Console\Commands;
+declare(strict_types=1);
+
+namespace App\Modules\Earthquake\Console\Commands;
 
 use App\Modules\Earthquake\Services\EarthquakeService;
 use Illuminate\Console\Command;

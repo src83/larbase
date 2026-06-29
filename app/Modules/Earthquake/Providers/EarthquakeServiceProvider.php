@@ -4,6 +4,7 @@ namespace App\Modules\Earthquake\Providers;
 
 use App\Modules\Earthquake\Integrations\Earthquake\AfadEarthquakeProvider;
 use App\Modules\Earthquake\Integrations\Earthquake\EarthquakeProviderInterface;
+use App\Modules\Earthquake\Console\Commands\EarthquakeUpdate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -19,6 +20,10 @@ class EarthquakeServiceProvider extends ServiceProvider
     {
         $this->loadRoutes();
         $this->loadMigrations();
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([EarthquakeUpdate::class]);
+        }
     }
 
     protected function loadRoutes(): void
