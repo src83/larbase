@@ -24,7 +24,7 @@ class EventsController extends Controller
     public function index(EventRequest $request): JsonResponse
     {
         $page = $request->integer('page', 1);
-        $perPage = (int) config('api.items_per_page');
+        $perPage = (int) config('earthquake.items_per_page');
 
         $paginator = $this->repository->getListPaginated($page, $perPage);
         if ($paginator->isEmpty()) {

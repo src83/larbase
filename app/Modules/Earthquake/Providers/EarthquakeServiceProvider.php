@@ -11,6 +11,7 @@ class EarthquakeServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        $this->mergeConfigFrom(__DIR__.'/../config/earthquake.php', 'earthquake');
         $this->app->bind(EarthquakeProviderInterface::class, AfadEarthquakeProvider::class);
     }
 
