@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 */
 
 Route::pattern('id', '\d+');
-Route::get('/', static fn() => throw new NotFoundHttpException('API root endpoint not available'));
+Route::get('/', static fn() => throw new NotFoundHttpException('API root endpoint is not available'));
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
