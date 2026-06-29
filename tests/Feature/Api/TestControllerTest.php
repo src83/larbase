@@ -57,9 +57,9 @@ class TestControllerTest extends TestCase
             ]);
     }
 
-    public function test_destroy_returns_conflict_when_id_is_13(): void
+    public function test_destroy_returns_conflict_when_id_is_3(): void
     {
-        $response = $this->deleteJson('/api/test/13');
+        $response = $this->deleteJson('/api/test/3');
 
         $response
             ->assertStatus(409)

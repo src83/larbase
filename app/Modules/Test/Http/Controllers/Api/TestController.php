@@ -203,7 +203,7 @@ class TestController extends Controller
             throw new ItemNotFoundException("Test model with ID {$id} not found");
         }
 
-        if ($id === 13) {
+        if ($id === 3) {
             BusinessLogger::warning('already_deleted', [
                 'user_id' => $id,
                 'message' => 'this is destroy problem'
