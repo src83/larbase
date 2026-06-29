@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
         Schema::create('earthquake_events', static function (Blueprint $table) {
@@ -15,10 +18,12 @@ return new class extends Migration
             $table->decimal('latitude', 10, 6)->nullable();
             $table->decimal('longitude', 10, 6)->nullable();
 
+            // глубина, магнитуда, rms (метрика качества расчёта (меньше - точнее))
             $table->decimal('depth', 8, 2)->nullable();
             $table->decimal('magnitude', 4, 1)->nullable();
             $table->decimal('rms', 5, 2)->nullable();
 
+            // ML - магнитуда по Рихтеру, но есть и другие шкалы
             $table->string('type', 10)->nullable();
 
             $table->string('location')->nullable();
@@ -35,6 +40,9 @@ return new class extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('earthquake_events');

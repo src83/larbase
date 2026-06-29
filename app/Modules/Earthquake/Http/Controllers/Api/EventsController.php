@@ -9,6 +9,7 @@ use App\Modules\Earthquake\Http\Requests\Api\EventRequest;
 use App\Modules\Earthquake\Http\Resources\Api\EventResource;
 use App\Modules\Earthquake\Repositories\EarthquakeRepository;
 use Illuminate\Http\JsonResponse;
+use Src83\LaravelApiResponse\Enums\MessageKeyEnum;
 use Src83\LaravelApiResponse\Exceptions\ItemNotFoundException;
 use Src83\LaravelApiResponse\Http\Responses\ApiErrorResponse;
 use Src83\LaravelApiResponse\Http\Responses\ApiSuccessResponse;
@@ -42,7 +43,7 @@ class EventsController extends Controller
         if ($id === 13) {
             return ApiErrorResponse::make(
                 Response::HTTP_CONFLICT,
-                'events.conflict',
+                MessageKeyEnum::CONFLICT,
             );
         }
 

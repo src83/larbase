@@ -44,6 +44,10 @@ mix.css('app/Modules/Example/resources/cabinet/css/app.css', 'public/css/cabinet
 mix.js(['app/Modules/Example/resources/cabinet/js/app.js'], 'public/js/cabinet/example/app.min.js').version();
 mix.copyDirectory('app/Modules/Example/resources/cabinet/img', 'public/img/cabinet/example').version();
 
+mix.css('app/Modules/Earthquake/resources/cabinet/css/app.css', 'public/css/cabinet/earthquake/app.css');
+mix.js(['app/Modules/Earthquake/resources/cabinet/js/app.js'], 'public/js/cabinet/earthquake/app.min.js').version();
+mix.copyDirectory('app/Modules/Earthquake/resources/cabinet/img', 'public/img/cabinet/earthquake').version();
+
 
 // Caching
 mix.version('public/css/**/*.css');

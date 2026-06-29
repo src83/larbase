@@ -8,6 +8,11 @@ use App\Http\Requests\CommonRequest;
 
 final class EventRequest extends CommonRequest
 {
+    /**
+     * Get the validation rules that apply to the request
+     * For 'GET' - params; For 'POST' - body;
+     * @return string[]
+     */
     public function rules(): array
     {
         $rules = [];
@@ -25,6 +30,10 @@ final class EventRequest extends CommonRequest
         return $rules;
     }
 
+    /**
+     * Validation of params from ROUTE - Priority
+     * @return array
+     */
     public function validationData(): array
     {
         return array_merge($this->all(), [

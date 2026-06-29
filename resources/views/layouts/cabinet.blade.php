@@ -59,6 +59,14 @@
                         </li>
                     @endif
 
+                    @if (Route::has('cabinet.events') && isMenuItemVisible('events'))
+                        <li class="nav-item ml-3">
+                            <a class="nav-link" href="{{ route('cabinet.events') }}">
+                                {{ __('Earthquake') }}
+                            </a>
+                        </li>
+                    @endif
+
                     <li class="nav-item dropdown ml-3">
 
                         <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
