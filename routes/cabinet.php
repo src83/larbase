@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 /**
  * Cabinet area / Кабинет / ЛК
- * http://l9stk.loc/cabinet
+ * URI: /cabinet
  */
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
