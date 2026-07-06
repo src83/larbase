@@ -54,7 +54,7 @@ final class TestRequest extends CommonRequest
     public function messages(): array
     {
         return [
-            'email.required' => __('api_results.test.email_required'),
+            'email.required' => __('api_response.test.email_required'),
         ];
     }
 
