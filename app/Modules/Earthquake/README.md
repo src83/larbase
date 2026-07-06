@@ -88,7 +88,7 @@ REST API для доступа к сохранённым сейсмически�
 |----------|-------|--------------|-------------------------|
 | `page`   | `int` | нет          | Номер страницы (min: 1) |
 
-Количество записей на странице: `config('api.items_per_page')` → env `ITEMS_PER_PAGE` (default: `15`).
+Количество записей на странице: `config('earthquake.items_per_page')` → env `ITEMS_PER_PAGE` (default: `15`).
 
 **GET /api/events/{id}**
 

@@ -9,7 +9,7 @@ class TestControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        config(['api.is_module_available' => true]);
+        config(['api_response.is_module_available' => true]);
     }
 
     public function test_index_returns_list_without_pagination(): void
