@@ -150,7 +150,7 @@ class Handler extends ExceptionHandler
 
             return new ApiErrorDTO(
                 httpCode: $statusCode,
-                messageKey: StringHelper::titleToSnakeCase(Response::$statusTexts[$statusCode] ?? 'Bad Request'),
+                messageKey: 'bad_request',
                 sysMessage: $e->getMessage() ?: null,
             );
         }
@@ -162,7 +162,7 @@ class Handler extends ExceptionHandler
 
             return new ApiErrorDTO(
                 httpCode: $statusCode,
-                messageKey: StringHelper::titleToSnakeCase(Response::$statusTexts[$statusCode] ?? 'Unauthorized'),
+                messageKey: 'unauthorized',
                 sysMessage: $e->getMessage() ?: null,
             );
         }
@@ -176,7 +176,7 @@ class Handler extends ExceptionHandler
 
             return new ApiErrorDTO(
                 httpCode: $statusCode,
-                messageKey: StringHelper::titleToSnakeCase(Response::$statusTexts[$statusCode] ?? 'Forbidden'),
+                messageKey: 'forbidden',
                 sysMessage: $e->getMessage() ?: null,
             );
         }
