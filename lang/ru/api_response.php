@@ -8,7 +8,7 @@
 // RU
 return [
 
-    // Action-Based Success Messages ------------------------------------------------------------
+    // Action-Based Success Messages
 
     'ok'          => 'Ok',
     'success'     => 'Успешно',
@@ -49,7 +49,7 @@ return [
     'assigned'    => 'Назначено',
     'unassigned'  => 'Снято назначение',
 
-    // Action-Based Error Messages ------------------------------------------------------------
+    // HTTP Error Messages
 
     'http_error'            => 'HTTP Error',
 
@@ -66,7 +66,7 @@ return [
     'locked'                => 'Ресурс заблокирован',  // 423
     'internal_server_error' => 'Внутренняя ошибка сервера',  // 500
 
-    // Error Messages by Modules ------------------------------------------------------------
+    // Error Messages by Modules (check documentation)
 
     'events' => [
         'bad_request'           => 'Некорректный запрос [модуль: events]',  // 400

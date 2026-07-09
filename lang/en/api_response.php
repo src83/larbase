@@ -8,7 +8,7 @@
 // EN
 return [
 
-    // Action-Based Success Messages ------------------------------------------------------------
+    // Action-Based Success Messages
 
     'ok'          => 'Ok',
     'success'     => 'Success',
@@ -49,7 +49,7 @@ return [
     'assigned'    => 'Assigned',
     'unassigned'  => 'Unassigned',
 
-    // Action-Based Error Messages ------------------------------------------------------------
+    // HTTP Error Messages
 
     'http_error'            => 'HTTP Error',
 
@@ -66,7 +66,7 @@ return [
     'locked'                => 'Resource locked',  // 423
     'internal_server_error' => 'Internal Server Error',  // 500
 
-    // Error Messages by Modules ------------------------------------------------------------
+    // Error Messages by Modules (check documentation)
 
     'events' => [
         'bad_request'           => 'Bad Request [module: events]',  // 400
