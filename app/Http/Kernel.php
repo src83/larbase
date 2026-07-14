@@ -16,9 +16,10 @@ use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Src83\LaravelApiResponse\Http\Middleware\ApiContextMiddleware;
-use Src83\LaravelApiResponse\Http\Middleware\SetupHeadersApiRequest;
-use Src83\LaravelApiResponse\Http\Middleware\SetupHeadersApiResponse;
+use Src83\LaravelApiResponse\Http\Middleware\AppendExecutionTimeMeta;
+use Src83\LaravelApiResponse\Http\Middleware\BindRequestContext;
+use Src83\LaravelApiResponse\Http\Middleware\ForceAcceptJson;
+use Src83\LaravelApiResponse\Http\Middleware\ForceContentType;
 use Src83\LaravelApiResponse\Http\Middleware\WrapApiResponse;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
@@ -65,14 +66,15 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            SetupHeadersApiRequest::class,
-            ApiContextMiddleware::class,
+            ForceAcceptJson::class,
+            BindRequestContext::class,
             // \App\Http\Middleware\CheckHost::class,
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             SubstituteBindings::class,
             WrapApiResponse::class,
-            SetupHeadersApiResponse::class,
+            AppendExecutionTimeMeta::class,
+            ForceContentType::class,
         ],
     ];
 
