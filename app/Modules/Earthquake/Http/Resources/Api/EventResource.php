@@ -11,8 +11,8 @@ final class EventResource extends BaseResource
     public function toArray($request): array
     {
         return [
-            'id'        => $this->resource->id,
-            'location'  => $this->resource->location,
+            'id' => $this->resource->id,
+            'location' => $this->resource->location,
             'magnitude' => $this->resource->magnitude,
         ];
     }

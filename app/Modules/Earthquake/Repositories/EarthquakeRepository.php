@@ -30,7 +30,7 @@ class EarthquakeRepository
         }
 
         $rows = $events->map(
-            fn (EarthquakeEventDTO $event) => $this->mapToRow($event)
+            fn(EarthquakeEventDTO $event) => $this->mapToRow($event)
         )->all();
 
         $beforeCount = EarthquakeEvent::query()->count();

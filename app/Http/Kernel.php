@@ -16,11 +16,6 @@ use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Src83\LaravelApiResponse\Http\Middleware\AppendExecutionTimeMeta;
-use Src83\LaravelApiResponse\Http\Middleware\BindRequestContext;
-use Src83\LaravelApiResponse\Http\Middleware\ForceAcceptJson;
-use Src83\LaravelApiResponse\Http\Middleware\ForceContentType;
-use Src83\LaravelApiResponse\Http\Middleware\WrapApiResponse;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Http\Middleware\HandleCors;
@@ -30,6 +25,11 @@ use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Src83\LaravelApiResponse\Http\Middleware\AppendExecutionTimeMeta;
+use Src83\LaravelApiResponse\Http\Middleware\BindRequestContext;
+use Src83\LaravelApiResponse\Http\Middleware\ForceAcceptJson;
+use Src83\LaravelApiResponse\Http\Middleware\ForceContentType;
+use Src83\LaravelApiResponse\Http\Middleware\WrapApiResponse;
 
 class Kernel extends HttpKernel
 {

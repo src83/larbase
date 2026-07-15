@@ -35,15 +35,14 @@ class ExceptionHandlerTest extends TestCase
                 'details',
             ])
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 400,
                 'http_text' => 'Bad Request',
             ])
             ->assertJsonPath('message.key', 'test_bad_request.bad_request')
-            ->assertJsonPath('message.gui', fn ($v) => is_string($v))
+            ->assertJsonPath('message.gui', fn($v) => is_string($v))
             ->assertJsonPath('message.sys', 'Bad Request')
-            ->assertJsonPath('details', null)
-        ;
+            ->assertJsonPath('details', null);
     }
 
     // 404: NotFound
@@ -64,15 +63,14 @@ class ExceptionHandlerTest extends TestCase
                 'details',
             ])
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 404,
                 'http_text' => 'Not Found',
             ])
             ->assertJsonPath('message.key', 'test_not_found.not_found')
-            ->assertJsonPath('message.gui', fn ($v) => is_string($v))
+            ->assertJsonPath('message.gui', fn($v) => is_string($v))
             ->assertJsonPath('message.sys', null)
-            ->assertJsonPath('details', null)
-        ;
+            ->assertJsonPath('details', null);
     }
 
     // 422: Unprocessable Content — validation error
@@ -95,17 +93,16 @@ class ExceptionHandlerTest extends TestCase
                 'details' => ['fields'],
             ])
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 422,
                 'http_text' => 'Unprocessable Content',
             ])
             ->assertJsonPath('message.key', 'test_validation.unprocessable_content')
-            ->assertJsonPath('message.gui', fn ($v) => is_string($v))
+            ->assertJsonPath('message.gui', fn($v) => is_string($v))
             ->assertJsonPath('message.sys', 'Validation error')
             ->assertJsonPath('details.fields', function ($fields) {
                 return array_key_exists('email', $fields);
-            })
-        ;
+            });
     }
 
     // 500: Default — Internal Server Error
@@ -126,16 +123,15 @@ class ExceptionHandlerTest extends TestCase
                 'details',
             ])
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 500,
                 'http_text' => 'Internal Server Error',
             ])
             ->assertJsonPath('message.key', 'test_internal_server_error.internal_server_error')
-            ->assertJsonPath('message.gui', fn ($v) => is_string($v))
+            ->assertJsonPath('message.gui', fn($v) => is_string($v))
             ->assertJsonPath('message.sys', 'Unexpected error in business logic')
             ->assertJsonPath('details', function ($details) {
                 return $details === null || (is_array($details) && !empty($details));
-            })
-        ;
+            });
     }
 }

@@ -8,6 +8,14 @@ use App\Http\Controllers\Controller;
 use App\Modules\Test\DTO\TestDto;
 use App\Modules\Test\Http\Requests\Api\TestRequest;
 use App\Modules\Test\Http\Resources\Api\TestResource;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Exceptions\PostTooLargeException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\UnauthorizedException;
+use Illuminate\Validation\ValidationException;
 use Src83\LaravelApiResponse\Enums\MessageKeyEnum;
 use Src83\LaravelApiResponse\Exceptions\DomainLayerException;
 use Src83\LaravelApiResponse\Exceptions\ItemNotFoundException;
@@ -18,14 +26,6 @@ use Src83\LaravelApiResponse\Http\Responses\ApiSuccessResponse;
 use Src83\LaravelApiResponse\Support\Logging\BusinessLogger;
 use Src83\LaravelApiResponse\Support\Pagination\ApiPaginator;
 use Src83\LaravelApiResponse\Support\Pagination\ArrayPaginator;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Exceptions\PostTooLargeException;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Validation\UnauthorizedException;
-use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -35,7 +35,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\LockedHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 
 /**
@@ -119,7 +118,7 @@ class TestController extends Controller
         $perPage = 2;
 
         $data = collect($items)->map(
-            fn ($item) => new TestDto($item['id'], $item['name'])
+            fn($item) => new TestDto($item['id'], $item['name'])
         );
 
         if (!$page) {
@@ -190,8 +189,9 @@ class TestController extends Controller
     {
         $data = [
             'id' => 42,
-            'email' => $request->input('email')
+            'email' => $request->input('email'),
         ];
+
         return ApiSuccessResponse::make($data, null, Response::HTTP_CREATED, MessageKeyEnum::CREATED);
     }
 
@@ -206,8 +206,9 @@ class TestController extends Controller
         if ($id === 3) {
             BusinessLogger::warning('already_deleted', [
                 'user_id' => $id,
-                'message' => 'this is destroy problem'
+                'message' => 'this is destroy problem',
             ]);
+
             return ApiErrorResponse::make(
                 Response::HTTP_CONFLICT,
                 MessageKeyEnum::CONFLICT,
@@ -285,7 +286,6 @@ class TestController extends Controller
         // * Нельзя редактировать, пока другой процесс его не освободит.
         // * Есть блокировка по бизнес-логике (например, "заказ оплачен — редактирование запрещено").
         #throw new LockedHttpException();
-
 
         /** Неименованные исключения */
 

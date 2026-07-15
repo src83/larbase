@@ -46,7 +46,7 @@ class LoginController extends Controller
     {
         $user = User::where('email', $request->email)->first();
 
-        if (! $user) {
+        if (!$user) {
             return redirect()->back()
                 ->withInput($request->only($this->username(), 'remember'))
                 ->withErrors([
@@ -54,7 +54,7 @@ class LoginController extends Controller
                 ]);
         }
 
-        if (! Hash::check($request->password, $user->password)) {
+        if (!Hash::check($request->password, $user->password)) {
             return redirect()->back()
                 ->withInput($request->only($this->username(), 'remember'))
                 ->withErrors([

@@ -18,7 +18,7 @@ class CheckHost
 
         $allowedHosts = [$domain, $mobileDomain];
 
-        if (! in_array($request->getHost(), $allowedHosts, true)) {
+        if (!in_array($request->getHost(), $allowedHosts, true)) {
             abort(403);
         }
 

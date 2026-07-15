@@ -31,7 +31,7 @@ class BindingServiceProvider extends ServiceProvider
     protected function bindServices(): void
     {
         foreach ($this->services as $name => $service) {
-            $this->app->bind($name, fn () => new $service());
+            $this->app->bind($name, fn() => new $service());
         }
     }
 }

@@ -35,12 +35,12 @@ class AfadEarthquakeProvider implements EarthquakeProviderInterface
 
         $events = $response->json();
 
-        if (! is_array($events)) {
+        if (!is_array($events)) {
             throw new ExternalApiException('Invalid API response');
         }
 
         return collect($events)->map(
-            static fn (array $item) => new EarthquakeEventDTO(
+            static fn(array $item) => new EarthquakeEventDTO(
                 eventId: $item['eventID'],
                 latitude: is_numeric($item['latitude']) ? (float) $item['latitude'] : null,
                 longitude: is_numeric($item['longitude']) ? (float) $item['longitude'] : null,
@@ -56,7 +56,7 @@ class AfadEarthquakeProvider implements EarthquakeProviderInterface
                 district: is_string($item['district']) ? $item['district'] : null,
                 neighborhood: is_string($item['neighborhood']) ? $item['neighborhood'] : null,
 
-                eventMoment: ! empty($item['date'])
+                eventMoment: !empty($item['date'])
                     ? new DateTimeImmutable($item['date'], new DateTimeZone('UTC'))
                     : throw new ExternalApiException('Invalid date'),
 

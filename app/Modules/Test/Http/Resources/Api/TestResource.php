@@ -16,7 +16,7 @@ final class TestResource extends BaseResource
     public function toArray($request): array
     {
         return [
-            'id'   => $this->resource->id,
+            'id' => $this->resource->id,
             'name' => $this->resource->name,
         ];
     }

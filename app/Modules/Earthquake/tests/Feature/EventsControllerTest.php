@@ -21,7 +21,7 @@ class EventsControllerTest extends TestCase
     private function createEvent(array $overrides = []): EarthquakeEvent
     {
         return EarthquakeEvent::create(array_merge([
-            'event_id'     => uniqid('TEST-', more_entropy: true),
+            'event_id' => uniqid('TEST-', more_entropy: true),
             'event_moment' => now(),
         ], $overrides));
     }
@@ -33,10 +33,10 @@ class EventsControllerTest extends TestCase
         $this->getJson('/api/events')
             ->assertOk()
             ->assertJson([
-                'success'   => true,
+                'success' => true,
                 'http_code' => 200,
-                'data'      => [],
-                'meta'      => null,
+                'data' => [],
+                'meta' => null,
             ]);
     }
 
@@ -64,7 +64,7 @@ class EventsControllerTest extends TestCase
         $this->getJson('/api/events?page=abc')
             ->assertUnprocessable()
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 422,
             ])
             ->assertJsonStructure(['details' => ['fields' => ['page']]]);
@@ -88,7 +88,7 @@ class EventsControllerTest extends TestCase
         $this->getJson('/api/events/99999')
             ->assertNotFound()
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 404,
             ]);
     }
@@ -98,7 +98,7 @@ class EventsControllerTest extends TestCase
         $this->getJson('/api/events/13')
             ->assertStatus(409)
             ->assertJson([
-                'success'   => false,
+                'success' => false,
                 'http_code' => 409,
             ]);
     }
