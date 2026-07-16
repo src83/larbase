@@ -65,7 +65,7 @@ class LoginController extends Controller
         return null;
     }
 
-    public function logout(Request $request)
+    public function logout(Request $request): JsonResponse|RedirectResponse
     {
         $this->guard()->logout();
 
