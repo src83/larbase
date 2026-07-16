@@ -1,0 +1,16 @@
+includes:
+  - vendor/larastan/larastan/extension.neon
+
+parameters:
+  level: 8
+  treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    - { identifier: missingType.iterableValue }
+    - { identifier: missingType.generics }
+    # request() is always non-null in HTTP context — nullsafe ?-> is intentional defensive style
+    - { message: '#Using nullsafe method call on non-nullable type Illuminate\\Http\\Request#' }
+    # Auth middleware guarantees $request->user() is non-null on this route
+    - { message: '#Parameter \#1 \$user of method App\\Actions\\Cabinet\\User\\Settings\\UpdatePasswordAction::execute\(\) expects App\\Models\\User, App\\Models\\User\|null given#' }
+  paths:
+    - app/
+    - tests/
