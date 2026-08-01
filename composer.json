@@ -4,12 +4,6 @@
     "description": "The Laravel 9 StarterKit Project",
     "keywords": ["framework", "laravel", "boilerplate", "starterkit"],
     "license": "MIT",
-    "repositories": [
-      {
-        "type": "path",
-        "url": "./xtra/packages/src83/laravel-api-response"
-      }
-    ],
     "require": {
         "php": "8.2.*",
         "ext-curl": "*",
@@ -23,7 +17,7 @@
         "laravel/tinker": "^2.11",
         "laravel/ui": "^4.6",
         "predis/predis": "^2.4",
-        "src83/laravel-api-response": "@dev"
+        "src83/laravel-api-response": "^1.0"
     },
     "require-dev": {
         "brianium/paratest": "^6.11",
